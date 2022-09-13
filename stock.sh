@@ -12,7 +12,7 @@ printf "%-20s|" "成交数(手)"
 printf "%-20s|\n" "成交额(万元)"
 for line in `cat ./conf.ini`
 do
-	tmp=`curl -s "${url}${line}" | iconv -f gb2312`
+	tmp=`curl -H "Referer:https://finance.sina.com.cn" -s "${url}${line}" | iconv -f gb2312`
 	#echo $tmp
 	str=`echo ${tmp#*\"}`
 	#echo $str
